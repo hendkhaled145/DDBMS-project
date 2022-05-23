@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "f3111ba5-d52d-4c48-8d01-33f83b67ca7f",
+		"name": "DDBMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14494089"
+	},
+	"item": [
+		{
+			"name": "patient/bulkinsert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n        \"Pname\": \"heba\",\r\n        \"Page\": \"25\",\r\n        \"Pphone\": \"0150554555471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Did\":\"6289815a198a181ea2259640\"\r\n},\r\n{\r\n        \"Pname\": \"omar\",\r\n        \"Page\": \"25\",\r\n        \"Pphone\": \"01918471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Did\":\"6289815a198a181ea2259640\"\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/patient/bulkinsert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"patient",
+						"bulkinsert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/blood/628aac0609638dbf402b18d0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n        \"Btype\": \"A\"\r\n},\r\n{\r\n        \"Btype\": \"B\"\r\n},\r\n{\r\n        \"Btype\": \"AB\"\r\n},\r\n{\r\n        \"Btype\": \"O\"\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/blood/628aac0609638dbf402b18d0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blood",
+						"628aac0609638dbf402b18d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/donor/bulkinsert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n        \"Dname\": \"mohamed\",\r\n        \"Dage\": \"45\",\r\n        \"Dphone\": \"0150554455471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Pid\": \"628a934d9175f7af50c7dd13\"\r\n        },\r\n        {\r\n        \"Dname\": \"sahar\",\r\n        \"Dage\": \"21\",\r\n        \"Dphone\": \"0112455471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Pid\": \"628a934d9175f7af50c7dd13\"\r\n        }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/donor/bulkinsert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"donor",
+						"bulkinsert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/account/update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"username\": \"hendkhaled\",\r\n        \"password\": \"hendkhaled123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/account/update/628ab4a394609456c6d8793c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"account",
+						"update",
+						"628ab4a394609456c6d8793c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/select",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/patient/select",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"patient",
+						"select"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/update/628a934d9175f7af50c7dd14",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Pname\": \"heba\",\r\n        \"Page\": \"25\",\r\n        \"Pphone\": \"0150554555471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Did\":\"6289815a198a181ea2259640\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/patient/update/628a934d9175f7af50c7dd14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"patient",
+						"update",
+						"628a934d9175f7af50c7dd14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/softdelete/628a934d9175f7af50c7dd14",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/patient/softdelete/628a934d9175f7af50c7dd14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"patient",
+						"softdelete",
+						"628a934d9175f7af50c7dd14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Pname\": \"heba\",\r\n        \"Page\": \"25\",\r\n        \"Pphone\": \"0150554555471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Did\":\"6289815a198a181ea2259640\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/patient/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"patient",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-agg",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Pname\": \"ahmed\",\r\n        \"Page\": \"55\",\r\n        \"Pphone\": \"0111554555471\",\r\n        \"Aid\": \"628981e5198a181ea2259642\",\r\n        \"Bid\": \"628981b3198a181ea2259641\",\r\n        \"Did\":\"6289815a198a181ea2259640\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/agg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"agg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "match",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unwind",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/unwind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"unwind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "group",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/group",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"group"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/project",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"project"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+const {softDeletePlugin }= require('soft-delete-plugin-mongoose')
+const { required } = require('nodemon/lib/config');
+
+const bloodSchema = mongoose.Schema({
+   
+    Btype: {
+        type:String,
+        required : true 
+    }
+
+});
+bloodSchema.plugin(softDeletePlugin);
+module.exports = mongoose.model('blood',bloodSchema);

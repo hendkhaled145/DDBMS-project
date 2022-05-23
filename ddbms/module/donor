@@ -1,0 +1,40 @@
+const mongoose = require('mongoose');
+const {softDeletePlugin }= require('soft-delete-plugin-mongoose')
+const { required } = require('nodemon/lib/config');
+
+const donorSchema = mongoose.Schema({
+   
+    Dname: {
+        type:String,
+        required : true 
+    },
+    Dage: {
+        type:String,
+        required : true 
+    },
+    Dphone: {
+        type:String,
+        required : true 
+    },
+    //refrence to account (one to one)
+    Aid: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"account",
+        required : true 
+    },
+     //refrence to blood (one to many)
+    Bid: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"blood",
+        required : true 
+    },
+    //refrence to donor (many to many)
+    Pid: [ {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"patient",
+        required : true 
+    }]
+
+});
+donorSchema.plugin(softDeletePlugin);
+module.exports = mongoose.model('donor',donorSchema);

@@ -1,0 +1,93 @@
+const express = require('express');
+const router= express.Router();
+const Patient = require('../module/patient')
+
+//get all patients
+router.get('/patient/select', async (req, res) => {
+    try{
+        const patient= await Patient.find()
+        res.json(patient)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+  //get specific patient
+router.get('/patient/:id', async (req, res) => {
+    try{
+        const patient= await Patient.findById(req.params.id)
+        res.json(patient)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+//insert patient
+router.post('/patient/insert', async (req, res) => {
+    const patient = new Patient({
+        Pname: req.body.Pname,
+        Page: req.body.Page,
+        Pphone: req.body.Pphone,
+        Aid: req.body.Aid,
+        Bid: req.body.Bid,
+        Did: req.body.Did
+    })
+   try{
+   const saved= await patient.save()
+    res.json(saved)
+   }catch(err){
+       res.json({message : err})
+   }
+  });
+
+  //bulk insert 
+router.post('/patient/bulkinsert', async (req, res) => {
+    try{
+        const saved= await Patient.insertMany(req.body)
+         res.json(saved)
+         
+        }catch(err){
+            res.json({message : err})
+            console.log(err)
+        }
+
+  });
+
+  //delete specific patient
+  router.delete('/patient/delete/:id', async (req, res) => {
+    try{
+        const deletedpatient= await Patient.remove({_id :req.params.id})
+        res.json(deletedpatient)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+  //update patient
+  router.patch('/patient/update/:id', async (req, res) => {
+    try{
+        const updatedpatient= await Patient.updateOne({_id :req.params.id},{ $set:{
+            Pname: req.body.Pname,
+            Page: req.body.Page,
+            Pphone: req.body.Pphone,
+            Aid: req.body.Aid,
+            Bid: req.body.Bid,
+            Did: req.body.Did}});
+        res.json(updatedpatient)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+
+  //soft delete specific patient
+  router.delete('/patient/softdelete/:id', async (req, res) => {
+    try{
+        const deletedpatient= await Patient.softDelete({_id :req.params.id})
+        res.json(deletedpatient)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+  module.exports= router

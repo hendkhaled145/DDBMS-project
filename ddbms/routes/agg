@@ -1,0 +1,70 @@
+const express = require('express');
+const router = express.Router();
+const Agg = require("../module/patient");
+
+
+router.post('/agg', async (req, res) => {
+  try{
+    const agg = await Agg.create(req.body);
+    res.json({ agg });
+  }catch(err){
+    res.json({message : err})
+    console.log(err)
+}
+
+});
+
+router.get('/group', async (req, res) => {
+    try{
+         const agg = await Agg.aggregate( [
+                {
+                  $group: {
+                     _id: null,
+                     count: { $sum: 1 }
+                  }
+                }
+            ])
+            res.json({ count: agg.length, agg });
+    }catch(err){
+      res.json({message : err})
+      console.log(err)
+  }
+  });
+
+  router.get('/match', async (req, res) => {
+    try{
+        const agg = await Agg.aggregate([ 
+            { 
+                $match : { Page :  "45" } 
+            }
+        ])
+        res.json({ count: agg.length, agg });
+    }catch(err){
+      res.json({message : err})
+      console.log(err)
+  }
+  });
+
+  router.get('/unwind', async (req, res) => {
+    try{
+        const agg = await Agg.aggregate( [ { $unwind : "$Did" } ] )
+    res.json({ count: agg.length, agg });
+    }catch(err){
+      res.json({message : err})
+      console.log(err)
+  }
+  });
+
+  router.get('/project', async (req, res) => {
+    try{
+        const agg = await Agg.aggregate( [ { $project : { _id: 1, Pname : 1 } } ] )
+    res.json({ count: agg.length, agg });
+
+    }catch(err){
+      res.json({message : err})
+      console.log(err)
+  }
+  });
+
+
+module.exports= router

@@ -1,0 +1,49 @@
+const express = require('express');
+const router= express.Router();
+const Blood = require('../module/blood')
+
+//get all patients
+router.get('/blood', async (req, res) => {
+    try{
+        const blood= await Blood.find()
+        res.json(blood)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+  //get specific blood
+router.get('/blood/:id', async (req, res) => {
+    try{
+        const blood= await Blood.findById(req.params.id)
+        res.json(blood)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+
+  //soft delete specific bloodtype
+  router.delete('/blood/softdelete/:id', async (req, res) => {
+    try{
+        const deletedblood= await Blood.softDelete({_id :req.params.id})
+        res.json(deletedblood)
+    }catch(err){
+        res.json({message : err})
+        console.log(err)
+    }
+  });
+
+   //bulk insert 
+router.post('/blood/bulkinsert', async (req, res) => {
+    try{
+        const saved= await Blood.insertMany(req.body)
+         res.json(saved)
+         
+        }catch(err){
+            res.json({message : err})
+            console.log(err)
+        }
+
+  });
+  module.exports= router
